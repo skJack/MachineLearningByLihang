@@ -50,6 +50,13 @@ class Perception:
 			y_axis = -self.b_list[i] - self.w_list[i][0] * x1 / self.w_list[i][1]
 			plt.plot(x1, y_axis)
 		plt.show()
+	def perdict(self,x):
+		y_perdict = np.sum(np.dot(self.w,x)) + self.b
+		if y_perdict > 0:
+			return 1
+		else:
+			return 0
+
 
 
 
