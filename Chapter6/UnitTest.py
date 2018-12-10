@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from LogisticRegression import LogisticRegression
+from sklearn.metrics import accuracy_score
 import cv2
 import time
 def binary(img):
@@ -26,9 +27,9 @@ class UnitTest():
         train_data, test_data, train_label, test_label = train_test_split(feature, y_label, test_size=0.33)
         start = time.clock()
         classifier = LogisticRegression()
-        classifier.train(train_data,train_label,0.1)
+        classifier.train(train_data,train_label)
         end = time.clock()
-        print("建立决策树完成，共花费{}秒".format(str(end - start)))
+        print("建立逻辑斯谛回归训练完成，共花费{}秒".format(str(end - start)))
         start = time.clock()
         perdict = classifier.perdict(test_data)
         end = time.clock()
